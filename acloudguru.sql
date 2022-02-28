@@ -1,28 +1,7 @@
-create table teachers
-	(teacher text, 
-	salary int, 
-	primary key (teacher),
-	);
-
-create table courses
-	(course text, 
-	teacher text,
-	primary key (course)
-	foreign key (teacher) references teachers (teacher)
-	);
-
-create table students
-	(student text,
-	gpa float,
-	primary key (student),
-	);
-
-create table enrolled
-	(course text, 
-	student text,
-	foreign key (course) references course (course)
-	foreign key (student) references students (student)
-	);
+create table teachers (teacher text, salary int, primary key (teacher));
+create table courses (course text, teacher text, primary key (course) foreign key (teacher) references teachers (teacher));
+create table students (student text, gpa float, primary key (student));
+create table enrolled (course text, student text, foreign key (course) references course (course), foreign key (student) references students (student));
 INSERT INTO teachers (teacher, salary) values ('von bane', '40000');
 INSERT INTO teachers (teacher, salary) values ('james dan', '42000');
 INSERT INTO teachers (teacher, salary) values ('lori mack', '50000');
