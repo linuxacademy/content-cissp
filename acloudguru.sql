@@ -1,3 +1,5 @@
+create database school;
+use school;
 create table teachers (teacher text, salary int, primary key (teacher));
 create table courses (course text, teacher text, primary key (course) foreign key (teacher) references teachers (teacher));
 create table students (student text, gpa float, primary key (student));
